@@ -48,7 +48,7 @@ export default function App() {
 
   const initializeGroupAuthWallet = () => {
     if (activeConnections.length <= 1) {
-      alert("Please connect at least 2 connectors")
+      alert("Less than 2 authentication methods are used. Please follow the steps.")
       return
     }
     initializeFunAccount({
@@ -59,6 +59,11 @@ export default function App() {
   }
 
   const createWallet = async () => {
+    if (!funWallet) {
+      alert("FunWallet not initialized. Please follow the steps.")
+      return
+    }
+
     // Add your custom action code here!
     setLoading(true)
 
