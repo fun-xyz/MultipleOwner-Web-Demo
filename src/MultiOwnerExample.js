@@ -55,7 +55,7 @@ export default function App() {
     }
     initializeFunAccount({
       users: activeConnections.map((connection) => ({ userId: convertToValidUserId(connection.account) })),
-      index: 12533
+      index: 1234512345 //random number
     }).catch()
 
   }
@@ -74,12 +74,14 @@ export default function App() {
   return (
     <div className="App">
       <h1>Create FunWallet with multiple owners.</h1>
-      1. Connect authentication providers.
+      1.&ensp;
       {connectors && connectors.map((_, index) => (
         index === 3 ?
-          <SocialButton></SocialButton>
+          null
           :
-          <ConnectorButton key={index} index={index} />
+          <>
+            <ConnectorButton key={index} index={index} />&ensp;
+          </>
       ))
       }
       {
@@ -90,7 +92,7 @@ export default function App() {
       <br></br>
       <br></br>
 
-      2. Initialize FunWallet.
+      2.&ensp;
       <button onClick={initializeGroupAuthWallet}>Create group auth wallet</button>
       {account ?
         <div>
@@ -101,7 +103,7 @@ export default function App() {
       <br></br>
       <br></br>
 
-      3. Create FunWallet.
+      3.&ensp;
       <button onClick={createWallet}>Create FunWallet</button>
       {loading ?
         <div>
