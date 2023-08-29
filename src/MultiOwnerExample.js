@@ -8,7 +8,7 @@ import {
   Goerli,
   configureNewFunStore,
   usePrimaryAuth,
-} from "@fun-xyz/react";
+} from "@funkit/react";
 import { useMemo } from "react";
 import { useState } from "react";
 import ConnectorButton from "./components/ConnectorButton"
