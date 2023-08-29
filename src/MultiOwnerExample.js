@@ -80,7 +80,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Create FunWallet with multiple owners.</h1>
+      <h1>Create FunWallet with multiple owners</h1>
       1.&ensp;
       {connectors && connectors.map((_, index) => (
         index === 3 ?
