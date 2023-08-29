@@ -14,8 +14,8 @@ import {
 import { useMemo } from "react";
 import { useState } from "react";
 import ConnectorButton from "./components/ConnectorButton"
-import SocialButton from "./components/SocialButton";
 
+//Step 1: Initialize the FunStore. This action configures your environment based on your apikey, chain, and the authentication methods of your choosing. 
 const DEFAULT_FUN_WALLET_CONFIG = {
   apiKey: "hnHevQR0y394nBprGrvNx4HgoZHUwMet5mXTOBhf",
   chain: Goerli,
@@ -40,6 +40,7 @@ export default function App() {
   const [receiptTxId, setReceiptTxId] = useState("")
   const [loading, setLoading] = useState(false)
 
+  //Step 2: Use the initializeFunAccount method to create your funWallet object
   const { connectors, activeConnectors } = useConnectors();
   const { account, initializeFunAccount, funWallet } = useCreateFun()
   const [auth] = usePrimaryAuth()
@@ -63,7 +64,11 @@ export default function App() {
   const createWallet = async () => {
     // Add your custom action code here!
     setLoading(true)
+
+    //Step 3: Create the operation
     const op = await funWallet.create(auth, await auth.getAddress())
+
+    //Step 4: Execute the operation.
     const receipt = await funWallet.executeOperation(auth, op)
     setReceiptTxId(receipt.txId)
     setLoading(false)
